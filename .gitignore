@@ -1,0 +1,7 @@
+node_modules
+.firerbase/
+.firebaserc
+.gitignore
+firebase.json
+public/
+.cache/

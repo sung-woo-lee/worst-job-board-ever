@@ -1,83 +1,80 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `#fcb21a`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 15%`,
-        maxWidth: "100vw",
-        padding: "1.5rem",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-      <div
-        style={{
-          width: "30%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          to="/directory"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          Directory
-        </Link>
+import React from 'react';
 
-        <Link
-          to="/job-board"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          Job Board
-        </Link>
+import Lottie from 'react-lottie';
 
-        <Link
-          to="/login"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          Log in
-        </Link>
-      </div>
-    </div>
-  </header>
-)
+import animatedLogo from '../images/20130-compass-needle-animation-with-axis.json';
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Header = () => (
+	<header
+		style={{
+			marginBottom: `1.45rem`,
+		}}>
+		<div
+			style={{
+				height: '10vh',
+				margin: `0 15%`,
+				maxWidth: '100vw',
+				padding: '1.5rem',
+				display: 'flex',
+				justifyContent: 'space-between',
+				alignItems: 'center',
+			}}>
+			<h1 style={{ margin: 0 }}>
+				<Link
+					to='/'
+					style={{
+						textDecoration: `none`,
+					}}>
+					<Lottie
+						height={100}
+						options={{
+							loop: true,
+							autoplay: true,
+							animationData: animatedLogo,
+							rendererSettings: {
+								preserveAspectRation: 'xMidYMid slice',
+							},
+						}}></Lottie>
+				</Link>
+			</h1>
+			<div
+				style={{
+					width: '30%',
+					display: 'flex',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+				}}>
+				<Link
+					to='/directory'
+					style={{
+						color: 'black',
+						textDecoration: `none`,
+					}}>
+					Directory
+				</Link>
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+				<Link
+					to='/job-board'
+					style={{
+						color: 'black',
+						textDecoration: `none`,
+					}}>
+					Job Board
+				</Link>
 
-export default Header
+				<Link
+					to='/login'
+					style={{
+						color: 'black',
+						textDecoration: `none`,
+					}}>
+					Log in
+				</Link>
+			</div>
+		</div>
+	</header>
+);
+
+export default Header;
