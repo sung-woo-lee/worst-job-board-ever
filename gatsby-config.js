@@ -16,7 +16,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-strapi',
 			options: {
-				apiURL: 'https://nicea-job-board-backend.herokuapp.com/',
+				apiURL: 'https://nicea-job-board-backend.herokuapp.com',
 				contentTypes: ['company', 'project', 'contractor'],
 				queryLimit: 100,
 			},
