@@ -1,20 +1,21 @@
-const path = require("path")
+const path = require("path");
 
 const makeRequest = (graphql, request) =>
   new Promise((resolve, reject) => {
     resolve(
-      graphql(request).then(result => {
+      graphql(request).then((result) => {
         if (result.errors) {
-          reject(result.errors)
+          reject(result.errors);
+          console.log(`check ${process.env.GATSBY_API_URL}`);
         }
-        console.log(JSON.stringify(result))
-        return result
+        console.log(JSON.stringify(result));
+        return result;
       })
-    )
-  })
+    );
+  });
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   const allProjects = await makeRequest(
     graphql,
     `
@@ -33,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `
-  )
+  );
 
   const createAllProjectPages = allProjects.data.allStrapiProject.edges.forEach(
     ({ node }) => {
@@ -43,9 +44,9 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           id: node.id,
         },
-      })
+      });
     }
-  )
+  );
 
-  return createAllProjectPages
-}
+  return createAllProjectPages;
+};
