@@ -96,8 +96,8 @@ const Projects = ({ data }) => {
 export default Projects;
 
 export const projectQuery = graphql`
-	query {
-		strapiProject {
+	query($id: String!) {
+		strapiProject(id: { eq: $id }) {
 			Name
 			Email
 			Description
